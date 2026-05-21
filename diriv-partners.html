@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diriv Partners — Celebrating Growth and Success Together</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A0E1A;
+    --navy-mid: #111827;
+    --navy-light: #1C2540;
+    --gold: #C9A84C;
+    --gold-light: #E4C87A;
+    --gold-pale: #F5E6C3;
+    --cream: #FAF7F0;
+    --white: #FFFFFF;
+    --smoke: #B8BFCC;
+    --charcoal: #2E3547;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed;
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,168,76,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease;
+  }
+  body:hover .cursor { opacity: 1; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* ─── NAV ─────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px;
+    transition: background 0.6s ease, padding 0.4s ease, backdrop-filter 0.6s;
+  }
+  nav.scrolled {
+    background: rgba(10,14,26,0.92);
+    backdrop-filter: blur(16px);
+    padding: 18px 60px;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+  .nav-logo {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.25em;
+    color: var(--white);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex; gap: 42px; list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.35s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    border: none;
+    padding: 12px 26px;
+    cursor: none;
+    transition: background 0.3s, transform 0.3s;
+    font-weight: 500;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ─── HERO ─────────────────────────────────── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Animated geometric background */
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 70% 30%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at 20% 70%, rgba(28,37,64,0.9) 0%, transparent 60%),
+      linear-gradient(165deg, var(--navy) 0%, #0D1525 50%, #07080F 100%);
+  }
+
+  /* Grid lines */
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  }
+
+  /* Floating orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.12;
+    animation: orbFloat 12s ease-in-out infinite;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--gold); top: -100px; right: -100px; animation-delay: 0s; }
+  .orb-2 { width: 300px; height: 300px; background: #2A4080; bottom: 50px; left: -50px; animation-delay: -4s; }
+  .orb-3 { width: 200px; height: 200px; background: var(--gold); bottom: 200px; right: 200px; opacity: 0.07; animation-delay: -8s; }
+
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -40px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.97); }
+  }
+
+  /* Diagonal accent line */
+  .hero-diagonal {
+    position: absolute;
+    top: 0; right: 30%;
+    width: 1px; height: 100vh;
+    background: linear-gradient(to bottom, transparent 0%, rgba(201,168,76,0.25) 40%, rgba(201,168,76,0.1) 70%, transparent 100%);
+    transform: rotate(15deg) translateX(100px);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 40px;
+    padding-top: 80px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 9vw, 110px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 1.1s ease 0.5s forwards;
+  }
+  .hero-title .gold-italic {
+    font-style: italic;
+    color: var(--gold-light);
+    font-weight: 300;
+  }
+
+  .hero-subtitle-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 50px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    animation: fadeUp 1.1s ease 0.7s forwards;
+  }
+
+  .hero-tagline {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--smoke);
+    max-width: 480px;
+    margin: 0 auto 52px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.1s forwards;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    border: none;
+    padding: 18px 40px;
+    cursor: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(201,168,76,0.3);
+  }
+  .btn-ghost {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 18px 40px;
+    cursor: none;
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-ghost:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.05);
+    transform: translateY(-3px);
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.8s forwards;
+  }
+  .hero-scroll-indicator span {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: var(--smoke);
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+  @keyframes scrollPulse {
+    0% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+    100% { opacity: 0; transform: scaleY(0.3); transform-origin: top; }
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    background: rgba(10,14,26,0.6);
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+  }
+  .stat-item {
+    padding: 28px 40px;
+    border-right: 1px solid rgba(201,168,76,0.12);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--smoke);
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ─── SECTION COMMONS ───────────────────────── */
+  section { padding: 120px 60px; }
+
+  .section-eyebrow {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--gold);
+    opacity: 0.7;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  /* ─── ABOUT ─────────────────────────────────── */
+  #about {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  #about::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%; height: 100%;
+    background: linear-gradient(135deg, rgba(201,168,76,0.03), transparent);
+    border-left: 1px solid rgba(201,168,76,0.07);
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--smoke);
+    margin-bottom: 20px;
+  }
+  .about-text p strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .about-signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .about-visual {
+    position: relative;
+  }
+  .about-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 50px;
+    position: relative;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 40px;
+    width: 60px; height: 3px;
+    background: var(--gold);
+  }
+  .about-card-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  .about-card-attr {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin-top: 50px;
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+  .value-cell {
+    padding: 28px 30px;
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.07);
+    transition: background 0.3s;
+  }
+  .value-cell:hover { background: rgba(201,168,76,0.04); }
+  .value-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .value-title {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .value-desc {
+    font-size: 12px;
+    color: var(--smoke);
+    line-height: 1.7;
+  }
+
+  /* ─── SERVICES ──────────────────────────────── */
+  #services {
+    background: var(--navy-mid);
+    position: relative;
+  }
+  .services-header {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .services-intro {
+    font-size: 15px;
+    color: var(--smoke);
+    line-height: 1.8;
+    max-width: 420px;
+    align-self: end;
+  }
+
+  .services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--navy);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    border-top: 2px solid transparent;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    border-top-color: var(--gold);
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.04), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .service-card:hover::after { opacity: 1; }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.12);
+    line-height: 1;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .service-icon {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .service-desc {
+    font-size: 13px;
+    color: var(--smoke);
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .service-link {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: gap 0.3s;
+  }
+  .service-link:hover { gap: 16px; }
+  .service-link::after { content: '→'; }
+
+  /* ─── TESTIMONIALS ──────────────────────────── */
+  #testimonials {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .testi-bg-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 200px;
+    font-style: italic;
+    color: rgba(201,168,76,0.03);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .testi-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 70px;
+  }
+  .testi-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 44px 38px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .testi-card:hover {
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-4px);
+  }
+  .testi-card:nth-child(2) { margin-top: 30px; }
+  .testi-stars {
+    display: flex; gap: 4px;
+    margin-bottom: 22px;
+  }
+  .star { color: var(--gold); font-size: 13px; }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .testi-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, #8B6914 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--navy);
+    font-style: italic;
+  }
+  .testi-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .testi-role {
+    font-size: 10px;
+    color: var(--smoke);
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+  }
+
+  /* ─── DIFFERENCE ────────────────────────────── */
+  #difference {
+    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%);
+    position: relative;
+  }
+  .diff-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .diff-visual {
+    position: relative;
+    height: 500px;
+  }
+  .diff-box {
+    position: absolute;
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+  .diff-box-main {
+    width: 80%; height: 75%;
+    top: 0; left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+  }
+  .diff-box-accent {
+    width: 55%; height: 45%;
+    bottom: 0; right: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+    border-color: rgba(201,168,76,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 30px;
+    text-align: center;
+  }
+  .diff-big-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .diff-big-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--smoke);
+    text-transform: uppercase;
+    max-width: 140px;
+    line-height: 1.6;
+  }
+  .diff-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .diff-attr {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .diff-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .diff-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.02);
+    border-left: 2px solid rgba(201,168,76,0.2);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .diff-item:hover {
+    border-left-color: var(--gold);
+    background: rgba(201,168,76,0.04);
+  }
+  .diff-item-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .diff-item-text h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+  .diff-item-text p {
+    font-size: 12px;
+    color: var(--smoke);
+    line-height: 1.7;
+  }
+
+  /* ─── CTA SECTION ───────────────────────────── */
+  #cta {
+    background: var(--navy);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-inner {
+    background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 60%),
+                var(--navy-light);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 120px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-inner::before {
+    content: '✦';
+    position: absolute;
+    font-size: 400px;
+    color: rgba(201,168,76,0.025);
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 1;
+  }
+  .cta-inner .section-title { margin-bottom: 14px; }
+  .cta-inner p {
+    font-size: 15px;
+    color: var(--smoke);
+    max-width: 500px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .cta-phone {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--smoke);
+    margin-top: 32px;
+  }
+  .cta-phone a {
+    color: var(--gold-light);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .cta-phone a:hover { color: var(--gold); }
+
+  /* ─── CONTACT FORM ──────────────────────────── */
+  #contact {
+    background: var(--navy-mid);
+    padding: 100px 60px;
+  }
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+  }
+  .contact-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  .contact-info p {
+    font-size: 14px;
+    color: var(--smoke);
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .contact-detail-icon {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,168,76,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    color: var(--gold);
+  }
+  .contact-detail-text a {
+    font-size: 14px;
+    color: var(--cream);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+  }
+  .contact-detail-text a:hover { color: var(--gold); }
+  .contact-detail-text span {
+    font-size: 10px;
+    color: var(--smoke);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  /* Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--smoke);
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,168,76,0.15);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: none;
+    width: 100%;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.03);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(184,191,204,0.35); }
+  .form-group select option { background: var(--navy-mid); color: var(--cream); }
+  .form-group textarea { height: 120px; resize: none; }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  footer {
+    background: #050810;
+    padding: 60px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  .footer-brand .nav-logo {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+  .footer-brand p {
+    font-size: 12px;
+    color: var(--smoke);
+    line-height: 1.8;
+    opacity: 0.6;
+    max-width: 260px;
+  }
+  .footer-col h4 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    font-size: 12px;
+    color: var(--smoke);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.3s, color 0.3s;
+  }
+  .footer-col ul a:hover { opacity: 1; color: var(--gold-light); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p {
+    font-size: 11px;
+    color: var(--smoke);
+    opacity: 0.4;
+  }
+  .footer-bottom-links {
+    display: flex; gap: 28px;
+  }
+  .footer-bottom-links a {
+    font-size: 10px;
+    color: var(--smoke);
+    opacity: 0.4;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: opacity 0.3s;
+  }
+  .footer-bottom-links a:hover { opacity: 0.8; }
+
+  /* WhatsApp FAB */
+  .whatsapp-fab {
+    position: fixed;
+    bottom: 36px; right: 36px;
+    width: 58px; height: 58px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 200;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    animation: fabPulse 3s ease infinite;
+  }
+  .whatsapp-fab:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 14px 40px rgba(37,211,102,0.45);
+  }
+  .whatsapp-fab svg { width: 28px; height: 28px; fill: white; }
+  @keyframes fabPulse {
+    0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.35); }
+    50% { box-shadow: 0 8px 50px rgba(37,211,102,0.55), 0 0 0 8px rgba(37,211,102,0.06); }
+  }
+
+  /* Reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+
+  /* ─── MOBILE ─────────────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    .about-inner, .diff-inner, .contact-inner { grid-template-columns: 1fr; gap: 50px; }
+    .services-header { grid-template-columns: 1fr; gap: 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .testi-card:nth-child(2) { margin-top: 0; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .stats-bar { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-title { font-size: 52px; }
+    #hero { padding-bottom: 60px; }
+    .diff-visual { height: 320px; }
+    .cta-inner { padding: 80px 24px; }
+    footer { padding: 50px 24px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/27767277467?text=Hi%20Diriv%20Partners%2C%20I%27m%20interested%20in%20partnering%20for%20growth."
+   class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.738 5.47 2.031 7.773L0 32l8.418-2.009A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.3 13.3 0 0 1-6.78-1.856l-.487-.29-5.002 1.194 1.22-4.863-.317-.5A13.277 13.277 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.327-9.89c-.4-.2-2.365-1.167-2.731-1.3-.366-.133-.633-.2-.9.2-.266.4-1.033 1.3-1.266 1.567-.233.266-.466.3-.866.1-.4-.2-1.69-.623-3.219-1.985-1.19-1.059-1.993-2.368-2.227-2.768-.233-.4-.025-.616.175-.815.18-.18.4-.467.6-.7.2-.233.266-.4.4-.666.133-.266.066-.5-.034-.7-.1-.2-.9-2.166-1.233-2.966-.325-.78-.655-.673-.9-.686l-.766-.013a1.47 1.47 0 0 0-1.067.5c-.366.4-1.4 1.367-1.4 3.333s1.433 3.866 1.633 4.133c.2.266 2.822 4.307 6.833 6.04.955.413 1.7.659 2.281.843.958.305 1.831.262 2.52.159.769-.115 2.365-.967 2.698-1.9.333-.934.333-1.734.233-1.9-.1-.167-.366-.267-.766-.467z"/>
+  </svg>
+</a>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Diriv <span>Partners</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Partners</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Join Our Circle</a>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-diagonal"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">South Africa & Global</div>
+    <h1 class="hero-title">
+      Diriv<br>
+      <span class="gold-italic">Partners</span>
+    </h1>
+    <div class="hero-subtitle-line">Your Growth Allies</div>
+    <p class="hero-tagline">Celebrating Growth and Success Together.<br>Cheers to Our Partners.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Join Our Circle</a>
+      <a href="#services" class="btn-ghost">Explore Partnerships</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Elite Partnerships</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">94%</div>
+      <div class="stat-label">Average Growth Rate</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Countries Reached</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-eyebrow reveal">Our Story</div>
+      <h2 class="section-title reveal reveal-delay-1">Forged in <em>Partnership,</em><br>Built for Legacy</h2>
+      <p class="reveal reveal-delay-2">In a world of fleeting transactions, true success is forged in partnership. Diriv Partners was born from the belief that <strong>exceptional growth happens when visionary leaders align with the right allies.</strong></p>
+      <p class="reveal reveal-delay-2">We don't just advise — we celebrate every milestone with you. From breakthrough strategies to scalable success, we stand beside you through every stage of your journey, raising a glass to shared victories.</p>
+      <p class="reveal reveal-delay-2">Founded in South Africa with a global reach, our network spans industries, borders, and ambitions — connecting the bold to what's possible.</p>
+      <div class="about-signature reveal reveal-delay-3">Cheers to Our Partners ✦</div>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-card">
+        <p class="about-card-quote">"Working with Diriv transformed not just our numbers, but how we celebrate every win. This is what true partnership looks like."</p>
+        <div class="about-card-attr">— CEO, Scaling Enterprise · Johannesburg</div>
+      </div>
+      <div class="values-grid" style="margin-top: 20px;">
+        <div class="value-cell">
+          <div class="value-icon">◈</div>
+          <div class="value-title">Excellence</div>
+          <div class="value-desc">Only the most aligned relationships for sustainable mutual wins.</div>
+        </div>
+        <div class="value-cell">
+          <div class="value-icon">◬</div>
+          <div class="value-title">Growth</div>
+          <div class="value-desc">Relentless focus on measurable results and innovation.</div>
+        </div>
+        <div class="value-cell">
+          <div class="value-icon">◯</div>
+          <div class="value-title">Integrity</div>
+          <div class="value-desc">Transparent, ethical, and discreet — your success protected.</div>
+        </div>
+        <div class="value-cell">
+          <div class="value-icon">✦</div>
+          <div class="value-title">Celebration</div>
+          <div class="value-desc">We honor milestones and foster shared joy in achievement.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SERVICES ═══════ -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-eyebrow reveal">What We Offer</div>
+      <h2 class="section-title reveal reveal-delay-1">Bespoke Services<br>for <em>Visionary</em> Leaders</h2>
+    </div>
+    <p class="services-intro reveal reveal-delay-2">Every offering is tailored, never off-the-shelf. We design solutions around your unique ambitions — because exceptional leaders deserve exceptional guidance.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-num">01</span>
+      <span class="service-icon">◈</span>
+      <h3 class="service-title">Strategic Business Advisory</h3>
+      <p class="service-desc">High-level counsel for leaders ready to scale. We analyze, strategize, and co-create the roadmap from where you are to where you're destined to be.</p>
+      <a href="#contact" class="service-link">Explore</a>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <span class="service-num">02</span>
+      <span class="service-icon">◬</span>
+      <h3 class="service-title">Partnership & Alliance Development</h3>
+      <p class="service-desc">Curated introductions and high-value network access. We connect you with the right partners, investors, and collaborators for exponential leverage.</p>
+      <a href="#contact" class="service-link">Explore</a>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <span class="service-num">03</span>
+      <span class="service-icon">◯</span>
+      <h3 class="service-title">Executive Growth Programs</h3>
+      <p class="service-desc">Intensive, personalized coaching frameworks designed for C-suite leaders and entrepreneurs ready to break through their next ceiling of complexity.</p>
+      <a href="#contact" class="service-link">Explore</a>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">04</span>
+      <span class="service-icon">✦</span>
+      <h3 class="service-title">Exclusive Network Events</h3>
+      <p class="service-desc">Invitation-only masterminds, roundtables, and celebrations that bring Africa's most ambitious minds together. Where deals are made and legacies begin.</p>
+      <a href="#contact" class="service-link">Explore</a>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <span class="service-num">05</span>
+      <span class="service-icon">⬡</span>
+      <h3 class="service-title">Affiliate & IB Optimization</h3>
+      <p class="service-desc">Specialist guidance for introducing brokers and affiliate partners. Maximize your commissions, streamline your processes, and grow your client base.</p>
+      <a href="#contact" class="service-link">Explore</a>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <span class="service-num">06</span>
+      <span class="service-icon">◤</span>
+      <h3 class="service-title">Customized Success Frameworks</h3>
+      <p class="service-desc">Proprietary systems built around your business model — from KPI design to organizational structure — creating the infrastructure that scales with you.</p>
+      <a href="#contact" class="service-link">Explore</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TESTIMONIALS ═══════ -->
+<section id="testimonials">
+  <div class="testi-bg-text">Success</div>
+  <div class="testi-inner">
+    <div class="section-eyebrow reveal">Partner Voices</div>
+    <h2 class="section-title reveal reveal-delay-1">What Our <em>Circle</em> Says</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Diriv Partners didn't just give us a strategy — they gave us a new way to think about growth. Every meeting felt like a celebration of possibility."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">T</div>
+          <div>
+            <div class="testi-name">Thabo M.</div>
+            <div class="testi-role">Founder, FinTech Ventures · Johannesburg</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The network access alone was worth ten times the investment. Within 3 months, we had forged partnerships that completely transformed our revenue trajectory."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Amara O.</div>
+            <div class="testi-role">CEO, Pan-African Trading Group · Lagos</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"In 12 years of business, I've never experienced partnership quite like this. They celebrate your wins as if they're their own — because they are."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sarah van D.</div>
+            <div class="testi-role">Managing Director, Investment Holdings · Cape Town</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ THE DIFFERENCE ═══════ -->
+<section id="difference">
+  <div class="diff-inner">
+    <div class="diff-visual reveal">
+      <div class="diff-box diff-box-main">
+        <p class="diff-quote">"We don't just advise — we align, we elevate, and we celebrate together."</p>
+        <div class="diff-attr">— The Diriv Promise</div>
+      </div>
+      <div class="diff-box diff-box-accent">
+        <div class="diff-big-num">94%</div>
+        <div class="diff-big-label">of partners report significant growth within 6 months</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-eyebrow reveal">The Diriv Difference</div>
+      <h2 class="section-title reveal reveal-delay-1">Why Leaders<br>Choose <em>Diriv</em></h2>
+      <ul class="diff-list">
+        <li class="diff-item reveal reveal-delay-1">
+          <div class="diff-item-icon">◈</div>
+          <div class="diff-item-text">
+            <h4>By Application Only</h4>
+            <p>We curate our circle with intention. Every partnership is a deliberate alignment of vision, values, and potential.</p>
+          </div>
+        </li>
+        <li class="diff-item reveal reveal-delay-2">
+          <div class="diff-item-icon">◬</div>
+          <div class="diff-item-text">
+            <h4>Local Depth, Global Reach</h4>
+            <p>Deep roots in South Africa's dynamic business landscape combined with an elite network spanning 12+ countries.</p>
+          </div>
+        </li>
+        <li class="diff-item reveal reveal-delay-3">
+          <div class="diff-item-icon">✦</div>
+          <div class="diff-item-text">
+            <h4>We Celebrate Your Wins</h4>
+            <p>Beyond strategy, we cultivate a culture of genuine appreciation — marking milestones as the victories they truly are.</p>
+          </div>
+        </li>
+        <li class="diff-item reveal">
+          <div class="diff-item-icon">◯</div>
+          <div class="diff-item-text">
+            <h4>Proven Frameworks, Personalized</h4>
+            <p>Proprietary methodologies shaped around your unique business — not templates, not guesswork, but precision-built success systems.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="section-eyebrow reveal" style="justify-content:center;">Begin Your Journey</div>
+    <h2 class="section-title reveal reveal-delay-1">Ready to Build<br>Something <em>Remarkable?</em></h2>
+    <p class="reveal reveal-delay-2">Join an exclusive circle of leaders who don't just grow — they celebrate every step of the ascent. Your invitation awaits.</p>
+    <div class="cta-actions reveal reveal-delay-2">
+      <a href="#contact" class="btn-primary">Apply for Partnership</a>
+      <a href="https://wa.me/27767277467" class="btn-ghost" target="_blank">WhatsApp Us</a>
+    </div>
+    <div class="cta-phone reveal reveal-delay-3">
+      Or call us directly: <a href="tel:+27767277467">+27 76 727 7467</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-eyebrow reveal">Get In Touch</div>
+      <h3 class="reveal reveal-delay-1">Let's Build<br>Success <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-light)">Together</em></h3>
+      <p class="reveal reveal-delay-2">Share your vision with us. Our team will respond within 24 hours to begin the conversation about your next chapter.</p>
+      <div class="contact-detail reveal reveal-delay-2">
+        <div class="contact-detail-icon">☎</div>
+        <div class="contact-detail-text">
+          <span>Phone / WhatsApp</span>
+          <a href="tel:+27767277467">+27 76 727 7467</a>
+        </div>
+      </div>
+      <div class="contact-detail reveal reveal-delay-2">
+        <div class="contact-detail-icon">✉</div>
+        <div class="contact-detail-text">
+          <span>Email</span>
+          <a href="mailto:info@dirivpartners.com">info@dirivpartners.com</a>
+        </div>
+      </div>
+      <div class="contact-detail reveal reveal-delay-2">
+        <div class="contact-detail-icon">◎</div>
+        <div class="contact-detail-text">
+          <span>Location</span>
+          <a href="#">Johannesburg, South Africa</a>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form reveal reveal-delay-2" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Your first name" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Your last name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>Phone / WhatsApp</label>
+        <input type="tel" placeholder="+27 ...">
+      </div>
+      <div class="form-group">
+        <label>Area of Interest</label>
+        <select>
+          <option value="" disabled selected>Select a service</option>
+          <option>Strategic Business Advisory</option>
+          <option>Partnership & Alliance Development</option>
+          <option>Executive Growth Program</option>
+          <option>Exclusive Network Events</option>
+          <option>Affiliate & IB Optimization</option>
+          <option>Customized Success Framework</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Vision</label>
+        <textarea placeholder="Tell us about your goals and what you're looking to achieve..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="cursor:none;border:none;text-align:center;width:100%">Send My Application</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo">Diriv <span>Partners</span></a>
+      <p>Celebrating Growth and Success Together. An elite partnership firm serving visionary leaders across Africa and beyond.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Partner Voices</a></li>
+        <li><a href="#difference">Why Diriv</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Business Advisory</a></li>
+        <li><a href="#services">Alliance Development</a></li>
+        <li><a href="#services">Executive Coaching</a></li>
+        <li><a href="#services">Network Events</a></li>
+        <li><a href="#services">IB Optimization</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="tel:+27767277467">+27 76 727 7467</a></li>
+        <li><a href="mailto:info@dirivpartners.com">Email Us</a></li>
+        <li><a href="https://wa.me/27767277467" target="_blank">WhatsApp</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Diriv Partners. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Confidentiality</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '6px'; cursor.style.height = '6px';
+      ring.style.width = '52px'; ring.style.height = '52px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '10px'; cursor.style.height = '10px';
+      ring.style.width = '36px'; ring.style.height = '36px';
+    });
+  });
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.style.opacity = '0.7';
+    setTimeout(() => {
+      btn.textContent = '✦ Application Sent — We\'ll Be in Touch';
+      btn.style.background = 'linear-gradient(135deg, #2d8c4e, #1e6633)';
+      btn.style.color = '#fff';
+      btn.style.opacity = '1';
+    }, 1600);
+  }
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Animated counter
+  function animateCounter(el, end, suffix = '') {
+    let start = 0;
+    const duration = 2000;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const value = Math.floor(progress * end);
+      el.textContent = value + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  const statNums = document.querySelectorAll('.stat-num');
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const text = el.textContent;
+        if (text.includes('%')) animateCounter(el, parseInt(text), '%');
+        else if (text.includes('+')) animateCounter(el, parseInt(text), '+');
+        statsObs.unobserve(el);
+      }
+    });
+  });
+  statNums.forEach(el => statsObs.observe(el));
+</script>
+</body>
+</html>
